@@ -46,18 +46,3 @@ function startServer() {
 
   console.log('Listening on http://localhost:8080');
 }
-
-function put() {
-  // Connect to the db
-  MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
-    if(err) return console.dir(err);
-
-    var grid = new Grid(db, 'fs');
-    var buffer = new Buffer(input);
-    grid.put(buffer, {metadata:{category:'text'}, content_type: 'text'}, function(err, fileInfo) {
-      if(!err) {
-        console.log("Finished writing file to Mongo");
-      }
-    });
-  });
-}
