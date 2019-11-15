@@ -31,4 +31,15 @@ textarea {
   <textarea autofocus></textarea>
 </div>
 
+<form id="frm1" action="server.js">
+  Text: <input type="text" name="input"><br>
+  <input type="button" onclick="myFunction()" value="Submit">
+</form>
+
+<script>
+function myFunction() {
+  document.getElementById("frm1").submit();
+}
+</script>
+
 <script src="dist/bundle.js"></script>
