@@ -69,6 +69,17 @@ textarea {
   <p>Connection Status: <span id="status-span"></span></p>
   <textarea autofocus></textarea>
 </div>
+
+<form id="frm1" action="server.js">
+  Text: <input type="text" name="input"><br>
+  <input type="button" onclick="myFunction()" value="Submit">
+</form>
+
+<script>
+function myFunction() {
+  document.getElementById("frm1").submit();
+}
+</script>
 <!--
 <div id="terminal"></div>
       <script>
