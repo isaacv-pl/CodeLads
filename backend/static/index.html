@@ -44,7 +44,13 @@ textarea {
   <h1 id="title">CodeLads</h1>
   <p>Connection Status: <span id="status-span"></span></p>
   <form name="form" onsubmit="put();">
-    <textarea autofocus id="input" name="input" rows="25"></textarea>
+    First name: <input name="fname" type="text"><br>
+    Last name: <input name="lname" type="text"><br>
+    <input type="submit" value="Log In">
+  </form>
+  <br>
+  <form>
+    <textarea autofocus id="input" name="input" rows="20"></textarea>
     <input type = "submit" class = "button button1" value="Save Doc">
   </form>
 </div>
@@ -54,7 +60,7 @@ textarea {
     Grid = mongo.Grid;
   function put() {
     // Connect to the db
-    MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+    MongoClient.connect("mongodb://localhost:27017/userDB.users", function(err, db) {
       if(err) return console.dir(err);
 
       var grid = new Grid(db, 'fs');
