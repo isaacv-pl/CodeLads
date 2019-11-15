@@ -21,7 +21,7 @@
                         <a class="nav-link" href="#">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../backend/static/index.html">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -35,7 +35,7 @@
                 <p>CodeLads gives you an instant online IDE that removes the need to physically be with your partner.</p>
             </div>
             <div class="signup">
-              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" >Sign up</button>
+              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Sign up</button>
 
              </div>
         </header>
