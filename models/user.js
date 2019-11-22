@@ -11,7 +11,7 @@ let userSchema= mongoose.Schema({
 	required: true
     },
     projects:{
-	type: String,
+	type: [String],
 	required: true
     }
 });

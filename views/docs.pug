@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1=Documents
+  ul.list-group
+    each doc, i in docs
+      li.list-group-item
+        a(href='/docs/'+name+'/edit/'+doc._id)=doc.docname
+  a(href='/docs/'+name+'/add')="Add new document"

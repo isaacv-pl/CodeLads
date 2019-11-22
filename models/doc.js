@@ -11,11 +11,15 @@ let docSchema = mongoose.Schema({
     },
     directoryPath:{
 	type: String,
-	required:true
-    }
+	required: false
+    },
     people:{
 	type: [String],
-	required: true
+	required: false
+    },
+    content:{
+	type: String,
+	required: false
     }
 });
 
