@@ -1,0 +1,59 @@
+let mongoose = require('mongoose');
+
+//User Schema
+let userSchema= mongoose.Schema({
+    name:{
+	type: String,
+	required: true
+    },
+    password:{
+	type: String,
+	required: true
+    },
+    projects:{
+	type: String,
+	required: true
+    }
+});
+
+let projectSchema = mongoose.Schema({
+    projName:{
+	type: String,
+	required: true
+    },
+    files:{
+	type: [Schema.Types.ObjectId],
+	required: true
+    },
+    owner:{
+	type: String,
+	required: true
+    },
+    people:{
+	type: [String],
+	required: true
+    }
+});
+
+let docSchema = mongoose.Schema({
+    docname:{
+	type: String,
+	required: true
+    },
+    owner:{
+	type: String,
+	required: true
+    },
+    directoryPath:{
+	type: String,
+	required:true
+    }
+    people:{
+	type: [String],
+	required: true
+    }
+});
+
+let User = module.exports = mongoose.model('User', userSchema);
+let Proj = module.exports = mongoose.model('Proj', projSchema);
+let Doc = module.exports = mongoose.model('Doc', docSchema);
