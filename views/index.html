@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>ShareDB Textarea</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="../../Frontend/node_modules/xterm/css/xterm.css" />
+<script src="../../Frontend/node_modules/xterm/lib/xterm.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+body {
+  background: #fff;
+}
+#container {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  bottom: 50px;
+  left: 50px;
+}
+textarea {
+  font: 14px/1.3 sans-serif;
+  padding: 4px 8px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+#title {
+  position: static;
+  font-size: 16;
+  color: #358DCC;
+}
+/*
+#terminal {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  bottom: 50px;
+  left: 600px;
+} */
+    
+</style>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header ">
+      <a class="navbar-brand collapse navbar-collapse" href="../../Frontend/index.html">CodeLads</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
+         <div class="btn btn-sm navbar-btn glyphicon glyphicon-folder-open"></div>
+         
+      <ul class="nav navbar-nav navbar-right">
+        <div class="btn btn-sm navbar-btn glyphicon glyphicon-wrench pull-left"></div>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="container">
+  <h1 id="title">Project Name</h1>
+  <p>Connection Status: <span id="status-span"></span></p>
+  <textarea autofocus></textarea>
+  <form>
+    <input type = "submit" class = "button button1" value="Save Doc">
+  </form>
+</div>
+<!--
+<div id="terminal"></div>
+      <script>
+        var term = new Terminal();
+        term.open(document.getElementById('terminal'));
+        term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
+      </script>
+-->
+
+
+
+<script src="dist/bundle.js"></script>
