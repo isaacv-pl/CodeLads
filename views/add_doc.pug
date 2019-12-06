@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1="Add New Document"
-  form(method='POST', action='/docs/'+name+'/add')
+  form(method='POST', action='/docs/add')
     #form-group
       label Filename:
       input.form-control(name='docname', type='text')

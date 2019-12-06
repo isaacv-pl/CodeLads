@@ -102,6 +102,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('*', function(req, res, next){
+    //set global variable
     res.locals.user = req.user || null;
     next();
 });
@@ -131,6 +132,10 @@ router.get("*/contact.html",function(req,res){
 });
 
 app.use("/",router);
+router.get("/test", function(req, res){
+    res.render("test.pug")
+});
+
 
 //Route Files
 let users = require('./routes/users');
