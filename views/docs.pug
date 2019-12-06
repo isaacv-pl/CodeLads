@@ -8,20 +8,20 @@ block content
         a.btn.btn-default(href='/docs/'+name+'/edit/'+doc._id)=doc.docname
         b &nbsp;
         a.btn.btn-danger.delete-doc(href='#', data-id=doc._id, name-id=name)="DELETE"
-	button.btn.btn-primary.pull-right(type='button' data-toggle='modal' data-target='#login-modal') Share
-	#login-modal.modal(role='dialog')
-	  .modal-dialog
-	    .modal-content
-	      .modal-header
-		h2 Invite users
-        	button.close(type='button' data-dismiss='modal') &times;
-	      .modal-body
-		form
-		  .form-group
-		    input.form-control(type='text')
-		  .form-group
-		    input.form-control(type='password')
-		  button.btn(type='submit') Submit
-	      .modal-footer
-		button.btn.btn-primary(type='button' data-dismiss='modal') Close
+        button.btn.btn-primary.pull-right(type='button' data-toggle='modal' data-target='#login-modal') Share
+        #login-modal.modal(role='dialog')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h2 Invite users
+                        button.close(type='button' data-dismiss='modal') &times;
+                    .modal-body
+                        form
+                            .form-group
+                                input.form-control(type='text')
+                            .form-group
+                                input.form-control(type='password')
+                            button.btn(type='submit') Submit
+                    .modal-footer
+                        button.btn.btn-primary(type='button' data-dismiss='modal') Close
   a(href='/docs/'+name+'/add')="Add new document"
