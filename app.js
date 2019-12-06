@@ -1,11 +1,17 @@
-var express = require('express');
+const express = require('express');
+const expressValidator = require('express-validator');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-var ShareDB = require('sharedb');
-var WebSocket = require('ws');
-var WebSocketJSONStream = require('@teamwork/websocket-json-stream');
-var http = require('http');
+const ShareDB = require('sharedb');
+const WebSocket = require('ws');
+const WebSocketJSONStream = require('@teamwork/websocket-json-stream');
+const http = require('http');
+const flash = require('connect-flash');
+const session = require('express-session');
+const config = require('./config/database');
+const passport = require('passport');
+
 
 mongoose.connect('mongodb://localhost/userDB',
     { useNewUrlParser: true,
@@ -38,7 +44,6 @@ let Doc = require('./models/doc');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-
 // Connect any incoming WebSocket connection to ShareDB
 var wss = new WebSocket.Server({server: server});
 wss.on('connection', function(ws) {
@@ -52,10 +57,57 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// Set Public Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Express Session Middleware
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+}));
+
+// Express Messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+    res.locals.messages = require('express-messages')(req, res);
+    next();
+});
+
+
+
+// Express Validator Middleware
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
+// Passport Config
+require('./config/passport')(passport);
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('*', function(req, res, next){
+    res.locals.user = req.user || null;
+    next();
+});
+
 router.get("/",function(req,res){
-    console.log("I am here");
-    res.sendFile(curPath + "landing.html");
-    //res.render('landing.pug');
+    res.render('landing.pug');
 });
 
 router.get("/index.html",function(req,res){
@@ -80,91 +132,12 @@ router.get("*/contact.html",function(req,res){
 
 app.use("/",router);
 
-app.get('/register', function(req, res){
-    res.render('register');
-});
+//Route Files
+let users = require('./routes/users');
+app.use('/users', users);
 
-app.post('/register', function(req, res){
-    let user = new User();
-    user.name = req.body.name;
-    user.password = req.body.password;
-    user.projects = [];
-    user.save(function(err){
-	if(err){
-	    console.log(err);
-	    return;
-	}
-	else{
-	    res.redirect('/docs/'+req.body.name);
-	}
-    });
-});
-
-app.get('/docs/:name', function(req, res){
-    Doc.find({owner: req.params.name}, function(err, docs){
-	if(err){
-	    console.log(err);
-	}
-	else{
-	    name=req.params.name;
-	    res.render('docs', {
-		name: name,
-		docs: docs
-	    });
-	}
-    });
-});
-
-//Add route
-app.get('/docs/:name/add', function(req, res){
-    res.render('add_doc');
-});
-
-//Add Submit POST Route
-app.post('/docs/:name/add', function(req, res){
-    let doc = new Doc();
-    doc.docname = req.body.docname;
-    doc.owner = req.params.name;
-
-    doc.save(function(err){
-	if(err){
-	    console.log(err);
-	    return;
-	}
-	else{
-	    res.redirect('/docs/'+req.params.name);
-	}
-    });
-});
-
-// Load Edit Form
-app.get('/docs/:name/edit/:id', function(req, res){
-    Doc.findById(req.params.id, function(err, docs){
-	res.render("index.pug", {
-	    docs:docs
-	});
-    });
-});
-
-// Update Submit POST Route
-app.post('/docs/:name/edit/:id', function(req, res){
-    let doc = {owner: req.params.name, _id: req.params.id};
-    doc.content = req.body.content;  
-    console.log("This is what I wrote: "+ doc.content);
-    let query = {_id:req.params.id}
-     
-    Doc.updateOne(query, doc, function(err){
-	if(err){
-	    console.log(err);
-	    return;
-	}
-	else{
-	    res.redirect('/docs/'+req.params.name);
-	}
-    });
-});
-
-
+let docs = require('./routes/docs');
+app.use('/docs', docs);
 
 //Start Server
 app.listen(3000, function(){

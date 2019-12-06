@@ -1,14 +1,21 @@
-doctype html
-meta(charset='utf-8')
-title Register on CodeLads
-meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
-#container
-  h1#title CodeLads Register
-  form(name='form' onsubmit='put();' method='POST', action='/register')
-    | Username: 
-    input.form-control(name='name' type='text')
-    br
-    |     Password: 
-    input.form-control(name='password' type='text')
-    br
-    input.btn.btn-primary(type='submit' value='Log In')
+extends layout
+
+block content
+  title Register on CodeLads
+  #container
+    h1#title CodeLads Register
+    form(name='form' onsubmit='put();' method='POST', action='/users/register')
+      #form-group  
+        label Name: 
+        input.form-control(name='name' type='text')
+      #form-group
+        label Username: 
+        input.form-control(name='username' type='text')
+      #form-group
+        label Password: 
+        input.form-control(name='password' type='password')
+      #form-group
+        label Confirm Password: 
+        input.form-control(name='password2' type='password')
+      br
+      input.btn.btn-primary(type='submit' value='Log In')

@@ -1,0 +1,22 @@
+doctype html
+head
+  title CodeLads Landing Page
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='../Frontend/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' type='text/css' href='../Frontend/bootstrap/css/custom.css')
+nav.navbar.navbar-expand-md
+  a.navbar-brand(href='landing.html')
+    | CodeLads
+  button.navbar-toggler.navbar-dark(type='button' data-toggle='collapse' data-target='#main-navigation')
+    span.navbar-toggler-icon
+  #main-navigation.collapse.navbar-collapse
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='/users/register') Register 
+      li.nav-item
+        a.nav-link(href='/users/login') Log In
+      li.nav-item
+        a.nav-link(href='about.html') About
+      li.nav-item
+        a.nav-link(href='contact.html') Contact

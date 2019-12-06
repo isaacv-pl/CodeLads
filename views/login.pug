@@ -4,18 +4,12 @@ block content
   title Login to CodeLads
   #container
     h1#title CodeLads Login
-    form(name='form' onsubmit='put();' method='POST', action='/users/register')
-      #form-group  
-        label Name: 
-        input.form-control(name='name' type='text')
+    form(name='form' onsubmit='put();' method='POST', action='/users/login')
       #form-group
         label Username: 
         input.form-control(name='username' type='text')
       #form-group
         label Password: 
         input.form-control(name='password' type='password')
-      #form-group
-        label Confirm Password: 
-        input.form-control(name='password2' type='password')
       br
       input.btn.btn-primary(type='submit' value='Log In')
