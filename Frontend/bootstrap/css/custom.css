@@ -1,21 +1,23 @@
-    .description {
-      left: 50%;
-      position: absolute;
-      top: 45%;
-      transform: translate(-50%, -55%);
-      text-align: center;
-    }
-    .description h3 {
-      color: #7DB6E0;
-    }
-    .description p {
-      color: #000000;
-      font-size: 1.3rem;
-      line-height: 1.5;
-    }
-    .signup {
-        position: absolute;
-        left: 50%
-        top: 65%;
-        transform: translate(50%, 55%)
-    }
+.description {
+  left: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translate(-50%, -55%);
+  text-align: center;
+}
+.description h3 {
+  color: #7DB6E0;
+}
+.description p {
+  color: #000000;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.signup {
+    position: absolute;
+    left: 50%
+    top: 65%;
+    transform: translate(50%, 55%)
+}
+
+
