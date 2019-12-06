@@ -1,0 +1,31 @@
+doctype html
+head
+  title CodeLads Landing Page
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='../Frontend/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' type='text/css' href='../Frontend/bootstrap/css/custom.css')
+nav.navbar.navbar-expand-md
+  a.navbar-brand(href='landing.html')
+    | CodeLads
+  button.navbar-toggler.navbar-dark(type='button' data-toggle='collapse' data-target='#main-navigation')
+    span.navbar-toggler-icon
+  #main-navigation.collapse.navbar-collapse
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='/register') Log In
+      li.nav-item
+        a.nav-link(href='about.html') About
+      li.nav-item
+        a.nav-link(href='contact.html') Contact
+header.page-header.header.container-fluid
+  .description
+    h3 Collaboration has never been easier.
+    p
+      | CodeLads gives you an instant online IDE that removes the need to physically be with your partner.
+  //
+    <div class="signup">
+    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Sign up</button>
+    </div>
+script(src='jquery-3.4.1.js')
+script(src='bootstrap/js/bootstrap.min.js')

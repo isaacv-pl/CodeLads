@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1="Add New Document"
+  form(method='POST', action='/docs/'+name+'/add')
+    #form-group
+      label Filename:
+      input.form-control(name='docname', type='text')
+
+    input.btn.btn-primary(type='submit', value='Submit')
+

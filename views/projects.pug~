@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 #{projName}
+  ul.list-group
+    each proj, i in projName
+      li.list-group-item
+        a(href="/proj/"+proj._id)=article.title
