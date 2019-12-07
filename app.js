@@ -13,12 +13,20 @@ const config = require('./config/database');
 const passport = require('passport');
 
 
+mongoose.connect('mongodb://heroku_lc6rd2dg:54eh80d394lsu3l81f7mq6dk0b@ds353358.mlab.com:53358/heroku_lc6rd2dg',
+		 { useNewUrlParser: true,
+		   useUnifiedTopology: true,
+		   useFindAndModify: false
+		 });
+/*
 mongoose.connect('mongodb://localhost/userDB',
     { useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false
     });
+*/
 let db = mongoose.connection;
+
 
 // Check connection
 db.once('open', function(){
