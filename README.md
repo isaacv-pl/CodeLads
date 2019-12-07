@@ -1,7 +1,7 @@
-# Collaborative Textarea with ShareDB
+# Code Lads
 
-This is a collaborative plain textarea using the default ShareDB JSON document
-type and the `sharedb-string-binding` module.
+This is a collaborative plain code editor that depends on 
+ShareDB and Ace Code Editor. 
 
 In this demo, data is not persisted. To persist data, run a Mongo
 server and initialize ShareDB with the
@@ -14,8 +14,12 @@ npm install
 
 ## Build JavaScript bundle and run server
 ```
-npm run build && npm start
+node app.js
 ```
 
 ## Run app in browser
-Load [http://localhost:8080](http://localhost:8080)
+Load [http://localhost:8000](http://localhost:8000)
+
+Alternatively, there is a heroku url that you can
+connect to [here](https://calm-waters-64546.herokuapp.com/)
+[
