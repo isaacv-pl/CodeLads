@@ -15,7 +15,8 @@ const passport = require('passport');
 
 mongoose.connect('mongodb://localhost/userDB',
     { useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useFindAndModify: false
     });
 let db = mongoose.connection;
 

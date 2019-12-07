@@ -54,11 +54,32 @@ router.post('/share/:id', ensureAuthenticated, function(req, res){
 	    res.redirect('/docs/');
 	}
 	else{
-	    Doc.findById(req.params.id, function(err, ddoc){
-		console.log("Before Update"+ ddoc.people);
+	    Doc.findByIdAndUpdate(req.params.id, { "$push": { "people": req.body.userfriend } }, { "new": true, "upsert": true }, function (err, doc) {
+		if(err){
+		    console.log(err);
+		}
+		else{
+		    req.flash('success', 'Shared '+doc.docname+' with '+req.body.userfriend);
+		    res.redirect('/docs/');
+		}
+	    });
+    	}
+    });
+});
+
+/*
+Doc.findById(req.params.id, function(err, ddoc){
 		let doc = {owner: req.user._id, _id: req.params.id};
-		doc.people = ddoc.people.push(req.body.userfriend);
+		console.log("type of people array: "+ typeof ddoc.people)
+		console.log("Before update; This is people: "+ ddoc.people);
+		if (typeof ddoc.people != 'undefined' && ddoc.people.length > 0){
+		    doc.people = ddoc.people.push(req.body.userfriend);
+		}
+		else{
+		    doc.people = [req.body.userfriend];
+		}
 		console.log("After update; This is people: "+ doc.people);
+		console.log("This should have been inserted: "+ req.body.userfriend);
 		let query = {_id:req.params.id}
 
 		Doc.updateOne(query, doc, function(err){
@@ -72,10 +93,8 @@ router.post('/share/:id', ensureAuthenticated, function(req, res){
 		    }
 		});
 	    });
-	}
-    });
-});
 
+*/
 
 // Load Edit Form
 router.get('/edit/:id', ensureAuthenticated, function(req, res){
@@ -113,7 +132,6 @@ router.post('/edit/:id', function(req, res){
 // Deleting doc
 router.delete('/:id', function(req, res){
     let query = {_id:req.params.id}
-
     Doc.deleteOne(query, function(err){
 	if(err){
 	    console.log(err);

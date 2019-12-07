@@ -7,6 +7,7 @@ link(rel='stylesheet' href='../../Frontend/node_modules/xterm/css/xterm.css')
 script(src='../../Frontend/node_modules/xterm/lib/xterm.js')
 script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
 script(src='//code.jquery.com/jquery-1.11.1.min.js')
+script(src='https://unpkg.com/sharedb-ace@latest/dist/sharedb-ace.min.js')
 script(type='text/javascript' src='js/ace.js')
 script(type='text/javascript' src='js/mode-java.js')
 script(type='text/javascript' src='js/theme-solarized_dark.js')
@@ -78,6 +79,9 @@ nav.navbar.navbar-default
     | }
   script(src='/js/ace.js' type='text/javascript' charset='utf-8')
   script.
+    ShareAce.on('ready', function() {
+    ShareAce.add(editor, [], [ Plugins, Here ]);
+});
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/solarized_dark");
     editor.session.setMode("ace/mode/java");
