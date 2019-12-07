@@ -79,6 +79,9 @@ nav.navbar.navbar-default
     | }
   script(src='/js/ace.js' type='text/javascript' charset='utf-8')
   script.
+    ShareAce.on('ready', function() {
+    ShareAce.add(editor, [], [ Plugins, Here ]);
+});
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/solarized_dark");
     editor.session.setMode("ace/mode/java");

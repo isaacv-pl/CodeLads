@@ -45,6 +45,7 @@ router.post('/add', function(req, res){
 
 // Share Submit POST Route
 router.post('/share/:id', ensureAuthenticated, function(req, res){
+    console.log("This is the document we are looking at: "+ req.params.id);
     User.find({username: req.body.userfriend}, function(err,data){
 	if(err){
 	    console.log(err);
@@ -67,42 +68,9 @@ router.post('/share/:id', ensureAuthenticated, function(req, res){
     });
 });
 
-/*
-Doc.findById(req.params.id, function(err, ddoc){
-		let doc = {owner: req.user._id, _id: req.params.id};
-		console.log("type of people array: "+ typeof ddoc.people)
-		console.log("Before update; This is people: "+ ddoc.people);
-		if (typeof ddoc.people != 'undefined' && ddoc.people.length > 0){
-		    doc.people = ddoc.people.push(req.body.userfriend);
-		}
-		else{
-		    doc.people = [req.body.userfriend];
-		}
-		console.log("After update; This is people: "+ doc.people);
-		console.log("This should have been inserted: "+ req.body.userfriend);
-		let query = {_id:req.params.id}
-
-		Doc.updateOne(query, doc, function(err){
-		    if(err){
-			console.log(err);
-			return;
-		    }
-		    else{
-			req.flash('success', 'Shared '+ddoc.docname+' with '+req.body.userfriend);
-			res.redirect('/docs/');
-		    }
-		});
-	    });
-
-*/
 
 // Load Edit Form
 router.get('/edit/:id', ensureAuthenticated, function(req, res){
-    /*if(doc.owner != req.user._id)
-req.flsh('danger', "Not Authorized");
-res.redirect('/');
-}
-*/
     Doc.findById(req.params.id, function(err, docs){
 	res.render("index.pug", {
 	    docs:docs
@@ -149,9 +117,14 @@ router.get('/', ensureAuthenticated, function(req, res){
 	}
 	else{
 	    name=req.user._id;
-	    res.render('docs', {
-		name: name,
-		docs: docs
+	    User.findById(name, function(err, user){
+		Doc.find({"people" : {$in : [user.name]}}, function(err, friendocs){
+		    res.render('docs', {
+			name: name,
+			docs: docs,
+			friendocs: friendocs
+		    });
+		});
 	    });
 	}
     });
