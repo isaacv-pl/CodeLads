@@ -3,7 +3,6 @@ extends layout
 block content
   h1 My Documents
   ul.list-group
-    
     each doc, i in docs
       li.list-group-item
         a.btn.btn-default(href='/docs/edit/'+doc._id)=doc.docname
