@@ -118,7 +118,7 @@ router.get('/', ensureAuthenticated, function(req, res){
 	else{
 	    name=req.user._id;
 	    User.findById(name, function(err, user){
-		Doc.find({"people" : {$in : [user.name]}}, function(err, friendocs){
+		Doc.find({"people" : {$in : [user.username]}}, function(err, friendocs){
 		    res.render('docs', {
 			name: name,
 			docs: docs,

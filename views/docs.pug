@@ -9,8 +9,8 @@ block content
         b &nbsp;
         a.btn.btn-danger.delete-doc(href='#' data-id=doc._id)="DELETE"
         b &nbsp;
-        button.btn.btn-primary.pull-right(type='button' data-toggle='modal' data-target='#login-modal') Share
-        #login-modal.modal(role='dialog')
+        button.btn.btn-primary.pull-right(type='button' data-toggle='modal' data-target='#login-modal-'+doc._id) Share
+        .modal(id=('login-modal-'+doc._id) role='dialog')
             .modal-dialog
                 .modal-content
                     .modal-header
@@ -28,6 +28,6 @@ block content
   h2 Shared Documents
     each friendoc, i in friendocs
       li.list-group-item
-        b friendoc.owner &nbsp; 
+        b #{friendoc.owner} &nbsp; 
         a.btn.btn-default(href='/docs/edit/'+friendoc._id)=friendoc.docname
 
