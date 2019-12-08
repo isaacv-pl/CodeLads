@@ -80,12 +80,8 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res){
 
 // Update Submit POST Route
 router.post('/edit/:id', function(req, res){
-    let doc = {owner: req.user._id, _id: req.params.id};
-    doc.content = req.body.content;  
-    console.log("This is what I wrote: "+ doc.content);
     let query = {_id:req.params.id}
-     
-    Doc.updateOne(query, doc, function(err){
+    Doc.updateOne(query, {$set: { content: req.body.content }}, function(err){
 	if(err){
 	    console.log(err);
 	    return;
@@ -137,7 +133,7 @@ function ensureAuthenticated(req, res, next){
     }
     else{
 	req.flash('danger', 'Please login');
-	res.redirect('users/login')
+	res.redirect('/users/login')
     }
 }
 
