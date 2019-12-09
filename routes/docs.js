@@ -80,8 +80,9 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res){
 
 // Update Submit POST Route
 router.post('/edit/:id', function(req, res){
+    console.log("This is what is received"+req.body.foo);
     let query = {_id:req.params.id}
-    Doc.updateOne(query, {$set: { content: req.body.content }}, function(err){
+    Doc.updateOne(query, {$set: { content: req.body.foo }}, function(err){
 	if(err){
 	    console.log(err);
 	    return;
