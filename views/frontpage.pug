@@ -1,0 +1,165 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title CodeLads
+  meta(content='width=device-width, initial-scale=1.0' name='viewport')
+  meta(content='' name='keywords')
+  meta(content='' name='description')
+  // Favicons
+  link(href='/img/favicon.png' rel='icon')
+  link(href='/img/apple-touch-icon.png' rel='apple-touch-icon')
+  // Google Fonts
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i' rel='stylesheet')
+  // Bootstrap css
+  // <link rel="stylesheet" href="css/bootstrap.css">
+  link(href='/lib/bootstrap/css/bootstrap.min.css' rel='stylesheet')
+  // Libraries CSS Files
+  link(href='/lib/owlcarousel/assets/owl.carousel.min.css' rel='stylesheet')
+  link(href='/lib/owlcarousel/assets/owl.theme.default.min.css' rel='stylesheet')
+  link(href='/lib/font-awesome/css/font-awesome.min.css' rel='stylesheet')
+  link(href='/lib/animate/animate.min.css' rel='stylesheet')
+  link(href='/lib/modal-video/css/modal-video.min.css' rel='stylesheet')
+  // Main Stylesheet File
+  link(href='/css/style.css' rel='stylesheet')
+  //
+    =======================================================
+    Theme Name: eStartup
+    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+    =======================================================
+header#header.header.header-hide
+  .container
+    #logo.pull-left
+      h1
+        a.scrollto(href='/') CodeLads
+    nav#nav-menu-container
+      ul.nav-menu
+        li.menu-active
+          a(href='#hero') Home
+        li
+          a(href='#features') Features
+        li
+          a(href='#team') Team
+        li
+          a(href='#contact') Contact Us
+    // #nav-menu-container
+// #header
+//
+  ==========================
+  Hero Section
+  ============================
+section#hero
+  .hero-container
+    h1 Collaboration has never been easier...
+    h2 CodeLads provides an instant online IDE perfect for partnered assignments.
+    img(src='img/hero-img.png' alt='Hero Imgs')
+    a.btn-get-started.scrollto(href='/users/register') Get Started
+// #hero
+//
+  ==========================
+  Features Section
+  ============================
+section#features.padd-section.text-center.wow.fadeInUp
+  .container
+    .section-title.text-center
+      h2 Features 
+      p.separator what makes this service ideal for student collaboration.
+  .container
+    .row
+      .col-md-6.col-lg-3
+        .feature-block
+          img.img-fluid(src='img/svg/network.png' alt='img')
+          h4 Code synchronization
+          p Code at the same time with your fellow CodeLads.
+      .col-md-6.col-lg-3
+        .feature-block
+          img.img-fluid(src='img/svg/syntax.png' alt='img')
+          h4 syntax highlighting
+          p Color-coded syntax for clear, readable code.
+      .col-md-6.col-lg-3
+        .feature-block
+          img.img-fluid(src='img/svg/folder.png' alt='img')
+          h4 File storage
+          p Access and share your project files easily.
+      .col-md-6.col-lg-3
+        .feature-block
+          img.img-fluid(src='img/svg/terminal.svg' alt='img')
+          h4 in-built terminal
+          p Coming soon!
+//
+  ==========================
+  Team Section
+  ============================
+section#team.padd-section.text-center.wow.fadeInUp
+  .container
+    .section-title.text-center
+      h2 Team Members
+      p.separator the wonderful people that made this possible.
+  .container
+    .row
+      .col-md-4.col-lg-4
+        .team-block.bottom
+          img.img-responsive(src='' alt='img')
+          .team-content
+            span Backend
+            h4 Isaac Velasquez
+      .col-md-4.col-lg-4
+        .team-block.bottom
+          img.img-responsive(src='' alt='img')
+          .team-content
+            span Backend
+            h4 Justin Son
+      .col-md-4.col-lg-4
+        .team-block.bottom
+          img.img-responsive(src='' alt='img')
+          .team-content
+            span Frontend
+            h4 Justin Yi
+//
+  ==========================
+  Contact Section
+  ============================
+section#contact.padd-section.wow.fadeInUp
+  .container
+    .section-title.text-center
+      h2 Contact Us
+      p.separator Run into any bugs or issues? Want to give feedback? We&apos;d love to hear from you.
+  .container
+    .row.justify-content-center
+      .col-lg-5.col-md-8
+        .form
+          #sendmessage Your message has been sent. Thank you!
+          #errormessage
+          form.contactForm(action='' method='post' role='form')
+            .form-group
+              input#name.form-control(type='text' name='name' placeholder='Your Name' data-rule='minlen:4' data-msg='Please enter at least 4 chars')
+              .validation
+            .form-group
+              input#email.form-control(type='email' name='email' placeholder='Your Email' data-rule='email' data-msg='Please enter a valid email')
+              .validation
+            .form-group
+              input#subject.form-control(type='text' name='subject' placeholder='Subject' data-rule='minlen:4' data-msg='Please enter at least 8 chars of subject')
+              .validation
+            .form-group
+              textarea.form-control(name='message' rows='5' data-rule='required' data-msg='Please write something for us' placeholder='Message')
+              .validation
+            .text-center
+              button(type='submit') Send Message
+// #contact
+a.back-to-top(href='#')
+  i.fa.fa-chevron-up
+// JavaScript Libraries
+script(src='/lib/jquery/jquery.min.js')
+script(src='/lib/jquery/jquery-migrate.min.js')
+script(src='/lib/bootstrap/js/bootstrap.bundle.min.js')
+script(src='/lib/superfish/hoverIntent.js')
+script(src='/lib/superfish/superfish.min.js')
+script(src='/lib/easing/easing.min.js')
+script(src='/lib/modal-video/js/modal-video.js')
+script(src='/lib/owlcarousel/owl.carousel.min.js')
+script(src='/lib/wow/wow.min.js')
+// Contact Form JavaScript File
+script(src='/contactform/contactform.js')
+// Template Main Javascript File
+script(src='/js/main.js')

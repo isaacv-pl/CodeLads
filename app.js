@@ -116,7 +116,7 @@ app.get('*', function(req, res, next){
 });
 
 router.get("/",function(req,res){
-    res.render('landing.pug');
+    res.render('frontpage.pug');
 });
 
 router.get("/index.html",function(req,res){

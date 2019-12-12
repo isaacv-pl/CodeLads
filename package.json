@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A simple client/server app using ShareDB and WebSockets",
   "main": "app.js",
-
   "scripts": {
     "build": "mkdir -p static/dist/ && ./node_modules/.bin/browserify client.js -o static/dist/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +10,8 @@
   },
   "author": "Isaac Velasquez",
   "contributors": [
-    "Justin Yi", "Justin Son"
+    "Justin Yi",
+    "Justin Son"
   ],
   "license": "MIT",
   "dependencies": {
@@ -35,8 +35,8 @@
     "sharedb-string-binding": "^1.0.0",
     "ws": "^7.2.0"
   },
-  "engines":{
-	"node": "10.x"	  
+  "engines": {
+    "node": "10.x"
   },
   "devDependencies": {
     "browserify": "^16.5.0"
