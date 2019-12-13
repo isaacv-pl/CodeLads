@@ -3,7 +3,6 @@ meta(charset='utf-8')
 title="CodeLads: Edit Doc"
 meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
 link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' rel='stylesheet')
-script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
 script(src='//code.jquery.com/jquery-1.11.1.min.js')
 script(type='text/javascript' src='js/ace.js')
 script(type='text/javascript' src='js/mode-java.js')
@@ -45,7 +44,7 @@ style.
   right: 50px;
   bottom: 50px;
   left: 600px;
-  } 
+  }
 nav.navbar.navbar-default
   .container-fluid
     .navbar-header
@@ -55,19 +54,17 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
     #myNavbar.collapse.navbar-collapse
-      .btn.btn-sm.navbar-btn.glyphicon.glyphicon-folder-open
+      .btn.btn-sm.navbar-btn.glyphicon.glyphicon-folder-open(href='/users/docs')
       ul.nav.navbar-nav.navbar-right
         .btn.btn-sm.navbar-btn.glyphicon.glyphicon-wrench.pull-left
         li
-          a(href='#')
+          a(href='/users/register')
             span.glyphicon.glyphicon-user
         li
-          a(href='#')
+          a(href='/users/login')
             span.glyphicon.glyphicon-log-in
 #container
   h1#title #{docs.docname}
-  p
-    | Connection Status: 
     span#status-span
   form(id='form' method='POST', action='/docs/edit/'+docs._id)
     #editor

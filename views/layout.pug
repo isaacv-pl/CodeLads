@@ -18,6 +18,7 @@ html
     link(href='/lib/animate/animate.min.css' rel='stylesheet')
     link(href='/lib/modal-video/css/modal-video.min.css' rel='stylesheet')
   body
+//
   header#header.header.header-hide
   .container
     #logo.pull-left
@@ -53,7 +54,10 @@ html
         li
             a(href='/users/login')
                 span.glyphicon.glyphicon-log-in
-
+a.navbar-brand.collapse.navbar-collapse(href='/') Logout
+br
+br
+br
 .container
   != messages('message', locals)
   if errors
