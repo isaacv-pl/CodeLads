@@ -1374,3 +1374,44 @@ body.mobile-nav-active #mobile-nav-toggle i {
   color: #71c55d;
 }
 
+/* Custom sign in css
+--------------------------------*/
+#container-signin h1#title {
+  color: #505050;
+  font-family: "Philosopher", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0;
+}
+#container-signin .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #71c55d !important;
+}
+
+/* Custom doc in css
+--------------------------------*/
+#container-docs h1#title, h2#title {
+  color: #505050;
+  font-family: "Philosopher", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0;
+}
+#container-docs .btn-default {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  display: inline-block;
+  padding: 11px 36px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid #71c55d;
+  background: #fff;
+  color: #71c55d;
+  text-decoration: none;
+}
+#container-docs .btn-default:hover {
+  background: #71c55d;
+  color: #fff;
+}
