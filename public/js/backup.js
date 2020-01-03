@@ -17,14 +17,13 @@ window.addEventListener('load', () => {
   const editorContainer = document.createElement('div')
   editorContainer.setAttribute('id', 'editor')
   document.body.insertBefore(editorContainer, null)
-  let content = document.getElementById("content").value
+
   const editor = CodeMirror(editorContainer, {
     mode: 'text/x-java',
     lineNumbers: true
   })
-  editor.setValue(content)
 
-  document.getElementById("form").onsubmit = function(evt){
+    document.getElementById("form").onsubmit = function(evt){
 	console.log("HELLO ME");
 	document.getElementById("editortext").value = editor.getValue();
 	console.log("TEXTAREA has the following: "+document.getElementById("editortext").value);
