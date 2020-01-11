@@ -3,7 +3,6 @@ const expressValidator = require('express-validator');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const ShareDB = require('sharedb');
 const WebSocket = require('ws');
 const WebSocketJSONStream = require('@teamwork/websocket-json-stream');
 const http = require('http');
@@ -11,6 +10,9 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const config = require('./config/database');
 const passport = require('passport');
+//For yjs
+const setupWSConnection = require('y-websocket/bin/utils.js').setupWSConnection;
+
 /*
 mongoose.connect('mongodb://heroku_lc6rd2dg:54eh80d394lsu3l81f7mq6dk0b@ds353358.mlab.com:53358/heroku_lc6rd2dg',
 		 { useNewUrlParser: true,
@@ -26,8 +28,6 @@ mongoose.connect('mongodb://localhost/userDB',
 
 let db = mongoose.connection;
 
-
-
 // Check connection
 db.once('open', function(){
     console.log('Connected to MongoDB');
@@ -42,7 +42,6 @@ db.on('error', function(err){
 var app = express();
 var router = express.Router();
 var curPath = __dirname + '/views/';
-var backend = new ShareDB();
 var server = http.createServer(app);
 
 // Bring in Models
@@ -53,12 +52,14 @@ let Doc = require('./models/doc');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// Connect any incoming WebSocket connection to ShareDB
-var wss = new WebSocket.Server({server: server});
-wss.on('connection', function(ws) {
-  var stream = new WebSocketJSONStream(ws);
-  backend.listen(stream);
+// Connect any incoming WebSocket connection to Yjs
+var wss = new WebSocket.Server({
+  server: server
 });
+wss.on('connection', function (conn, req) {
+  return setupWSConnection(conn, req);
+});
+
 
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -154,8 +155,8 @@ let docs = require('./routes/docs');
 app.use('/docs', docs);
 
 //Start Server
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
+var production = process.env.PRODUCTION != null;
+var port = process.env.PORT || 8000;
+
 app.listen(port);
+console.log("Listening to http://localhost:".concat(port, " ").concat(production ? '(production)' : ''));
