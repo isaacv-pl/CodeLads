@@ -83,6 +83,7 @@ nav.navbar.navbar-default
     
     document.getElementById("form").onsubmit = function(evt){
       document.getElementById("editortext").value = editor.getValue();
+      console.log("TEXTAREA has the following: "+document.getElementById("editortext").value);
     }
 
 script(src='dist/bundle.js')

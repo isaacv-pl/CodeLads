@@ -1,7 +1,7 @@
 doctype html
 head
   meta(charset='utf-8')
-  title CodeLads Editor
+  title Yjs CodeMirror Example
   script(type='text/javascript' src='/dist/codemirror.js' async='')
   link(rel='stylesheet' href='https://codemirror.net/lib/codemirror.css' async='' defer='')
   style.
@@ -31,6 +31,5 @@ button#y-connect-btn(type='button') Disconnect
 p
 p
   form(id='form' method='POST', action='/docs/edit/'+docs._id)
-    textarea(name="doo" id="content" style="display: none;")=docs.content
     textarea(name="foo" id="editortext" style="display: none;")
     input.btn.btn-primary(type='submit' value='Save Doc')
