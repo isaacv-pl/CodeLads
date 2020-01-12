@@ -1,34 +1,38 @@
 extends layout
 
 block content
-  h1 My Documents
-  ul.list-group
-    each doc, i in docs
-      li.list-group-item
-        a.btn.btn-default(href='/docs/edit/'+doc._id)=doc.docname
-        b &nbsp;
-        a.btn.btn-danger.delete-doc(href='#' data-id=doc._id)="DELETE"
-        b &nbsp;
-        
-        button.btn.btn-primary.pull-right(type='button' data-toggle='modal' data-target='#sharemodal'+doc._id) Share
-        .modal(id=('sharemodal'+doc._id) role='dialog')
-            .modal-dialog(role='document')
-                .modal-content
-                    .modal-header
-                        h2 Invite users
-                        button.close(type='button' data-dismiss='modal') &times;
-                    .modal-body
-                        form(name='form' onsubmit='put();' method='POST', action='/docs/share/'+doc._id)
-                            #form-group
-                                label Who would you like to share it with? (Username)
-                                input.form-control(name='userfriend' type='text')
-                            input.btn.btn-primary(type='submit' value='Submit')
-                    .modal-footer
-                        button.btn.btn-primary(type='button' data-dismiss='modal') Close
-  a(href='/docs/add')="Add new document"
-  h2 Shared Documents
-    each friendoc, i in friendocs
-      li.list-group-item
-        b #{friendoc.owner} &nbsp; 
-        a.btn.btn-default(href='/docs/edit/'+friendoc._id)=friendoc.docname
+    #container-docs
+          h1#title My Documents
+          ul.list-group
+            each doc, i in docs
+              li.list-group-item
+                a.btn.btn-default(href='/docs/edit/'+doc._id)=doc.docname
+                b &nbsp;
+                a.btn.btn-danger.pull-right.delete-doc(href='#' data-id=doc._id)="DELETE"
+                b &nbsp;
+
+                button.btn.btn-primary.pull-right(type='button' data-toggle='modal' data-target='#sharemodal'+doc._id) Share
+                .modal(id=('sharemodal'+doc._id) role='dialog')
+                    .modal-dialog(role='document')
+                        .modal-content
+                            .modal-header
+                                h2 Invite users
+                                button.close(type='button' data-dismiss='modal') &times;
+                            .modal-body
+                                form(name='form' onsubmit='put();' method='POST', action='/docs/share/'+doc._id)
+                                    #form-group
+                                        label Who would you like to share it with? (Username)
+                                        input.form-control(name='userfriend' type='text')
+                                    input.btn.btn-primary(type='submit' value='Submit')
+                            .modal-footer
+                                button.btn.btn-primary(type='button' data-dismiss='modal') Close
+          a(href='/docs/add')="Add new document"
+          br
+          br
+          br
+          h2#title Shared Documents
+            each friendoc, i in friendocs
+              li.list-group-item
+                b #{friendoc.owner} &nbsp; 
+                a.btn.btn-default(href='/docs/edit/'+friendoc._id)=friendoc.docname
 

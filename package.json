@@ -32,7 +32,7 @@
     "lib0": "^0.1.7",
     "lit-html": "^1.1.2",
     "mongoose": "^5.7.12",
-    "node-static": "^0.7.11",
+    "nodemon": "^2.0.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "popper.js": "^1.16.0",
