@@ -158,5 +158,5 @@ app.use('/docs', docs);
 var production = process.env.PRODUCTION != null;
 var port = process.env.PORT || 8000;
 
-app.listen(port);
+server.listen(port);
 console.log("Listening to http://localhost:".concat(port, " ").concat(production ? '(production)' : ''));
