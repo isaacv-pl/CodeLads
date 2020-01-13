@@ -6,11 +6,13 @@ import { CodeMirrorBinding } from 'y-codemirror'
 import CodeMirror from 'codemirror'
 import 'codemirror/mode/clike/clike.js'
 
+
+let room = document.getElementById("roomname").value
 window.addEventListener('load', () => {
   const ydoc = new Y.Doc()
   const provider = new WebsocketProvider(
     `${location.protocol === 'http:' ? 'ws:' : 'wss:'}${location.host}`,
-    'codemirror',
+    room,
     ydoc
   )
   const yText = ydoc.getText('codemirror')
