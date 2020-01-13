@@ -25,9 +25,9 @@ mongoose.connect('mongodb://localhost/userDB',
       useUnifiedTopology: true,
       useFindAndModify: false
     });
+*/
 
 let db = mongoose.connection;
-*/
 // Check connection
 db.once('open', function(){
     console.log('Connected to MongoDB');
