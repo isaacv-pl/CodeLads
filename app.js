@@ -12,18 +12,20 @@ const config = require('./config/database');
 const passport = require('passport');
 //For yjs
 const setupWSConnection = require('y-websocket/bin/utils.js').setupWSConnection;
+
+/*
 mongoose.connect('mongodb://heroku_qkbbwftf:i1t11fg9if435691niu8vdbtir@ds263248.mlab.com:63248/heroku_qkbbwftf',
 		 { useNewUrlParser: true,
 		   useUnifiedTopology: true,
 		   useFindAndModify: false
 		 });
-/*
+*/
 mongoose.connect('mongodb://localhost/userDB',
     { useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false
     });
-*/
+
 let db = mongoose.connection;
 
 // Check connection
