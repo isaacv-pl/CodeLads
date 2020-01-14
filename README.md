@@ -19,5 +19,5 @@ npm run start
 Load [http://localhost:8000](http://localhost:8000)
 
 Alternatively, there is a heroku url that you can
-connect to [here](https://calm-waters-64546.herokuapp.com/)
+connect to [here](https:codelads.herokuapp.com/)
 
