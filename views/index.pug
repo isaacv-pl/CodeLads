@@ -4,11 +4,6 @@ head
   title CodeLads Editor
   script(type='text/javascript' src='/dist/codemirror.js' async='')
   link(rel='stylesheet' href='https://codemirror.net/lib/codemirror.css' async='' defer='')
-  link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' rel='stylesheet')
-  link(href='/img/logo.png' rel='icon')
-  link(href='/img/apple-touch-icon.png' rel='apple-touch-icon')
-  //Stuff I added that may or may not be needed idk let's figure it out later
-  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i' rel='stylesheet')
   style.
     .remote-caret {
     position: absolute;
@@ -32,11 +27,11 @@ head
     padding-right: 2px;
     z-index: 3;
     }
-//button#y-connect-btn(type='button') Disconnect
+button#y-connect-btn(type='button') Disconnect
 p
 p
   form(id='form' method='POST', action='/docs/edit/'+docs._id)
     textarea(name="doo" id="content" style="display: none;")=docs.content
     textarea(name="foo" id="editortext" style="display: none;")
-    input.btn.btn-primary(type='submit' value='Close Doc')
-br
+    textarea(name="soo" id="roomname" style="display: none;")=docs._id
+    input.btn.btn-primary(type='submit' value='Save Doc')
