@@ -35,10 +35,18 @@ window.addEventListener('load', () => {
     
 
     const binding = new CodeMirrorBinding(yText, editor, provider.awareness)
-    /*
-    if(editor.getValue() == "")
-	editor.setValue(content)
-    */
+
+    const setDefaultVal = () => {
+	if (ytext.toString() === '') {
+	    ytext.insert(0, content)
+	}
+    }
+    if (provider.synced) {
+	setDefaultVal()
+    } else {
+	provider.once('synced', setDefaultVal)
+    }
+
     document.getElementById("form").onsubmit = function(evt){
 	console.log("HELLO ME");
 	document.getElementById("editortext").value = editor.getValue();
