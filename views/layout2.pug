@@ -55,17 +55,15 @@ html
             a(href='/users/login')
                 span.glyphicon.glyphicon-log-in
 //a.navbar-brand.collapse.navbar-collapse(href='/') Logout
-br
-br
-br
 .container
+  br
+  br
+  br
   != messages('message', locals)
   if errors
     each error, i in errors
       div(class="aler alert-danger") #{error.msg}
-      br
   block content
-  br
   hr
   footer
     p Copyright &copy; 2020

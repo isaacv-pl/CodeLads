@@ -6,8 +6,8 @@ head
   meta(content='' name='keywords')
   meta(content='' name='description')
   // Favicons
-  link(href='/img/favicon.png' rel='icon')
-  link(href='/img/apple-touch-icon.png' rel='apple-touch-icon')
+  link(href='/img/logo.png' rel='icon')
+  link(href='/img/logo.png' rel='apple-touch-icon')
   // Google Fonts
   link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i' rel='stylesheet')
   // Bootstrap css
@@ -41,7 +41,7 @@ header#header.header.header-hide
           a(href='#features') Features
         li
           a(href='#team') Team
-        li
+        //li
           a(href='#contact') Contact Us
         li
           a(href='/users/login') Log In
@@ -102,7 +102,7 @@ section#team.padd-section.text-center.wow.fadeInUp
     .row
       .col-md-4.col-lg-4
         .team-block.bottom
-          img.img-responsive(src='img/iav.jpg' alt='img')
+          img.img-responsive(src='img/iav.png' alt='img')
           .team-content
             span Backend
             h4 Isaac Velasquez
@@ -114,7 +114,7 @@ section#team.padd-section.text-center.wow.fadeInUp
             h4 Justin Son
       .col-md-4.col-lg-4
         .team-block.bottom
-          img.img-responsive(src='img/jlyi.jpg' alt='img')
+          img.img-responsive(src='img/jlyi.jpeg' alt='img')
           .team-content
             span Frontend
             h4 Justin Yi
@@ -122,7 +122,8 @@ section#team.padd-section.text-center.wow.fadeInUp
   ==========================
   Contact Section
   ============================
-section#contact.padd-section.wow.fadeInUp
+
+//section#contact.padd-section.wow.fadeInUp
   .container
     .section-title.text-center
       h2 Contact Us
@@ -148,6 +149,7 @@ section#contact.padd-section.wow.fadeInUp
               .validation
             .text-center
               button(type='submit') Send Message
+
 // #contact
 a.back-to-top(href='#')
   i.fa.fa-chevron-up

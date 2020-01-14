@@ -1,6 +1,24 @@
-extends layout
+extends layout2
 
 block content
+    header#header.header.header-hide
+        .container
+            #logo.pull-left
+                h1 CodeLads
+            nav#nav-menu-container
+                ul.nav-menu
+                    li.menu-active
+                        a(href='/users/logout') Logout
+
+    //#container-navbar
+        ul
+            li
+                a(href='/docs') Username
+            li(style='float:right')
+                a.active(href='/') Logout
+    br
+    br
+    br
     #container-docs
           h1#title My Documents
           ul.list-group
@@ -17,7 +35,7 @@ block content
                         .modal-content
                             .modal-header
                                 h2 Invite users
-                                button.close(type='button' data-dismiss='modal') &times;
+                                //button.close(type='button' data-dismiss='modal') &times;
                             .modal-body
                                 form(name='form' onsubmit='put();' method='POST', action='/docs/share/'+doc._id)
                                     #form-group
@@ -25,7 +43,8 @@ block content
                                         input.form-control(name='userfriend' type='text')
                                     input.btn.btn-primary(type='submit' value='Submit')
                             .modal-footer
-                                button.btn.btn-primary(type='button' data-dismiss='modal') Close
+                                button.close(type='button' data-dismiss='modal') &times;
+                                //button.btn.btn-primary(type='button' data-dismiss='modal') Close
           a(href='/docs/add')="Add new document"
           br
           br
@@ -33,6 +52,6 @@ block content
           h2#title Shared Documents
             each friendoc, i in friendocs
               li.list-group-item
-                b #{friendoc.owner} &nbsp; 
+                b #{friendoc._id} &nbsp; 
                 a.btn.btn-default(href='/docs/edit/'+friendoc._id)=friendoc.docname
 

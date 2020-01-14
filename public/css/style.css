@@ -365,7 +365,7 @@ span {
   content: "\f105";
 }
 
-/* Nav Meu Container */
+/* Nav Menu Container */
 #nav-menu-container {
   float: right;
   margin: 0 0 0 0;
@@ -1415,3 +1415,41 @@ body.mobile-nav-active #mobile-nav-toggle i {
   background: #71c55d;
   color: #fff;
 }
+
+/* Custom navbar in css
+--------------------------------*/
+#container-navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #71c55d;
+}
+
+#container-navbar li {
+  float: left;
+}
+
+
+#container-navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/*
+#container-navbar li a:hover {
+  background-color: #111;
+}
+*/
+
+#section-navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#help .btn-primary
