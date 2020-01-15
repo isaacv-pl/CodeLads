@@ -27,11 +27,10 @@ head
     padding-right: 2px;
     z-index: 3;
     }
-button#y-connect-btn(type='button') Disconnect
-p
+button#y-connect-btn(type='button' style="display: none;") 
 p
   form(id='form' method='POST', action='/docs/edit/'+docs._id)
     textarea(name="doo" id="content" style="display: none;")=docs.content
     textarea(name="foo" id="editortext" style="display: none;")
     textarea(name="soo" id="roomname" style="display: none;")=docs._id
-    input.btn.btn-primary(type='submit' value='Save Doc')
+    input.btn.btn-primary(type='submit' value='Close Doc')
