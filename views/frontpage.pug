@@ -118,36 +118,6 @@ section#team.padd-section.text-center.wow.fadeInUp
           .team-content
             span Frontend
             h4 Justin Yi
-//
-  ==========================
-  Contact Section
-  ============================
-section#contact.padd-section.wow.fadeInUp
-  .container
-    .section-title.text-center
-      h2 Contact Us
-      p.separator Run into any bugs or issues? Want to give feedback? We&apos;d love to hear from you.
-  .container
-    .row.justify-content-center
-      .col-lg-5.col-md-8
-        .form
-          #sendmessage Your message has been sent. Thank you!
-          #errormessage
-          form.contactForm(action='' method='post' role='form')
-            .form-group
-              input#name.form-control(type='text' name='name' placeholder='Your Name' data-rule='minlen:4' data-msg='Please enter at least 4 chars')
-              .validation
-            .form-group
-              input#email.form-control(type='email' name='email' placeholder='Your Email' data-rule='email' data-msg='Please enter a valid email')
-              .validation
-            .form-group
-              input#subject.form-control(type='text' name='subject' placeholder='Subject' data-rule='minlen:4' data-msg='Please enter at least 8 chars of subject')
-              .validation
-            .form-group
-              textarea.form-control(name='message' rows='5' data-rule='required' data-msg='Please write something for us' placeholder='Message')
-              .validation
-            .text-center
-              button(type='submit') Send Message
 // #contact
 a.back-to-top(href='#')
   i.fa.fa-chevron-up
