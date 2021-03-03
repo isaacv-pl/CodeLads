@@ -36,7 +36,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "popper.js": "^1.16.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "reconnecting-websocket": "^4.2.0",
     "rollup": "^1.27.12",
     "rollup-plugin-commonjs": "^10.1.0",
