@@ -47,7 +47,7 @@
     "sharedb-string-binding": "^1.0.0",
     "standard": "^14.3.1",
     "webpack": "^4.41.2",
-    "ws": "^7.2.0",
+    "ws": "^7.4.6",
     "y-codemirror": "^1.0.3",
     "y-webrtc": "^10.0.3",
     "y-websocket": "^1.0.7",
